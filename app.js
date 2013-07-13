@@ -56,6 +56,7 @@ app.post('/:eventId', function(req, res){
             function(err, participants){
               res.json(participants)
             });
+        });
   }
 });
 
