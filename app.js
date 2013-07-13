@@ -125,9 +125,7 @@ app.delete('/:eventId/deleteRider', function(req, res){
                      riders: { $elemMatch: { username : req.body.rider_name }}
                    }, 
                    { $pull: {
-                     { 
-                       riders: { $elemMatch: { username : req.body.rider_name }}
-                     }
+                       riders: {  username : req.body.rider_name }
                    }},
                    function(err, docs){
                      console.log(arguments);

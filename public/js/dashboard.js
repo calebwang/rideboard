@@ -32,7 +32,25 @@ $(document).ready(function() {
 
             	if(ui.item.parent().hasClass('delete')){
             		(ui.item.hide());
+                var eventPath = event.currentTarget.location.pathname;
+                var rider_name = ui.item[0].textContent.split(' ')[0];
+                var myData = {
+                    'rider_name': rider_name,
+                };
+                $.ajax({
+                    url     : eventPath + '/deleteRider',
+                    type    : 'delete',
+                    dataType: 'json',
+                    data    : myData,
+                    success : function( data ) {
+                                 console.log(data);
+                    },
+                    error   : function( xhr, err ) {
+                                 console.log('Error');     
+                    }
+                }); 
             	}
+
             	var grandParent = ui.item.parent().parent();
             	if (grandParent.hasClass('car')) {
             		console.log(grandParent.attr('data-li-seats')-1);
