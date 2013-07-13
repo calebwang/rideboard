@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var connect = require('connect');
-var databaseUrl = 'rideboard-db';
+var databaseUrl = 'rideboardDb';
 var collections = ['events'];
 var db = require('mongojs').connect(databaseUrl, collections);
 
