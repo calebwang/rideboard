@@ -34,15 +34,20 @@ html
                 .driver2.car.draggable
                 .driver3.car.draggable
                 .driver4.car.draggable
+                - var drivers = event_data.drivers;
+                for driver in drivers
+                    if driver != null && driver.isDriver === 'Yes'
+                        .car.draggable
+                            p Driver: #{driver.username}
             .rider-pool.draggable
                 p #{event_data._id}
                 br
-                - var users = event_data.riders;
-                for user in users
-                    if user != null && user.isDriver === 'No'
+                - var riders = event_data.riders;
+                for rider in riders
+                    if rider != null && rider.isDriver === 'No'
                       .rider
-                          span #{user.username} 
-                          span #{user.phone}
+                          span #{rider.username} 
+                          span #{rider.phone}
                 br
             div#dialogModal.modal.hide.fade(tabindex='-1', role='dialog', aria-lablledby='dialogModalLabel', aria-hidden='true')
                 form#newUserForm(action='/' + eventId + '/newUser', method='post')
