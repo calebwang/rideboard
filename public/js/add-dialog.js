@@ -42,14 +42,16 @@ $(document).ready(function() {
           );
         }
         if (data[2].value === 'Yes') {
+          var seats = data[3].value;
             $('.driver-pool').append(
-              '<div driverName="' + username + '" class="car">' + 
-                '<div class="driver">' + 
-                  '<p>Driver: ' + username + '</p>' + 
-                '</div>' + 
-                '<div class="passengers draggable">Passengers:' + 
-                '</div>' + 
-              '</div>'
+                '<div data-li-seats="' + seats +  '" driverName="' + username + '" class="car">' +
+                  '<div class="driver">' + 
+                    '<p>Driver: ' + username + '</p>' + 
+                    '<p>Total Seats: ' + seats + '</p>' + 
+                  '</div>' + 
+                  '<div class="passengers draggable">Passengers:' + 
+                  '</div>' + 
+                '</div>'
             );
         resize();
         }
