@@ -26,12 +26,18 @@ app.get('/:eventId', function(req, res){
   console.log('Serving /index');
 });
 
-app.post('/', function(req, res){
+app.post('/:eventId', function(req, res){
   res.render('index');
   console.log(req.query); 
   console.log('Serving /index');
 });
 
+//update an event
+app.put('/:eventId', function(req, res){
+  res.render('index');
+  console.log(req.query); 
+  console.log('Serving /index');
+});
 
 var port = process.env.PORT || 8080
 
