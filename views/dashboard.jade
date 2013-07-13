@@ -4,6 +4,7 @@ html
         script(src='/js/jquery-ui.js', type='text/javascript')
         script(src='/js/add-dialog.js', type='text/javascript')
         script(src='/js/bootstrap.js', type='text/javascript')
+        script(src='/js/dashboard.js', type='text/javascript')
         link(rel='stylesheet', type='text/css', href='/css/bootstrap.css')
         link(rel='stylesheet', type='text/css', href='/css/pool.css')
         |<script>
@@ -27,13 +28,13 @@ html
                         li
                             a#add-passenger(href='#') Add
             .driver-pool
-                .driver1.car
+                #driver1.car(data-li-seats="4")
                     p Driver: John Doe
                     p Driver data
                     .passengers.draggable Passengers:
-                .driver2.car.draggable
-                .driver3.car.draggable
-                .driver4.car.draggable
+                #driver2.car.draggable(data-li-seats="3")
+                #driver3.car.draggable(data-li-seats="4")
+                #driver4.car.draggable(data-li-seats="5")
             .rider-pool.draggable
                 p #{event_data._id}
                 br
