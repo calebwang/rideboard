@@ -38,9 +38,10 @@ html
                 - var drivers = event_data.drivers;
                 for driver in drivers
                     if driver != null && driver.isDriver === 'Yes'
-                        .car.draggable(data-li-seats=driver.seats)
+                        .car(data-li-seats=driver.seats)
                             .driver
                                 p Driver: #{driver.username}
+                            .passengers.draggable Passengers:
 
             .rider-pool.draggable
                 p #{event_data._id}
