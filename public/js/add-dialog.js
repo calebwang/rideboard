@@ -41,6 +41,19 @@ $(document).ready(function() {
             "<div class=rider><span>" + username + "</span><span style=\"float: right; margin-right: 10px\">" + phone + "</span></div>"
           );
         }
+        if (data[2].value === 'No') {
+            $('.driver-pool').append(
+              '<div driverName="' + username + '" class="car">' + 
+                '<div class="driver">' + 
+                  '<p>Driver: ' + username + '</p>' + 
+                '</div>' + 
+                '<div class="passengers draggable">Passengers:' + 
+                '</div>' + 
+              '</div>'
+            );
+        }
+        resize();
+
         return false;
     });
 });
