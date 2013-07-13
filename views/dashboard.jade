@@ -51,20 +51,21 @@ html
                                               span.phone #{rider.phone}
                                               br
                                               span.location #{rider.location}
-            .rider-pool.draggable
+            .rider-pool
                 h4 People Who Need Rides
-                br
-                - var riders = event_data.riders;
-                for rider in riders
-                    if rider != null && rider.isDriver === 'No' && rider.driver === ''
-                      .rider
-                          span.username #{rider.username} 
-                          span.phone #{rider.phone}
-                          br
-                          span.location #{rider.location}
-                br
-                img.delete.draggable(src='/img/trash.png') 
-                i.btn.btn-inverse.assign Auto Assign
+                .people.draggable
+                    br
+                    - var riders = event_data.riders;
+                    for rider in riders
+                        if rider != null && rider.isDriver === 'No' && rider.driver === ''
+                        .rider
+                            span.username #{rider.username} 
+                            span.phone #{rider.phone}
+                            br
+                            span.location #{rider.location}
+                    br
+                    img.delete.draggable(src='/img/trash.png') 
+                    i.btn.btn-inverse.assign Auto Assign
             div#dialogModal.modal.hide.fade(tabindex='-1', role='dialog', aria-lablledby='dialogModalLabel', aria-hidden='true')
                 form#newUserForm(action='/' + eventId + '/newUser', method='post')
                     div.modal-header
