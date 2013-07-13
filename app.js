@@ -4,6 +4,7 @@ var connect = require('connect');
 var databaseUrl = 'rideboardDb';
 var collections = ['events'];
 var db = require('mongojs').connect(databaseUrl, collections);
+var ObjectId = require('mongojs').ObjectId;
 
 app.use(express.bodyParser());
 app.use(connect.compress());
@@ -15,13 +16,17 @@ app.set('views', __dirname + '/views');
 app.locals.pretty=true;
 
 app.get('/', function(req, res){
-  console.log(req.params); 
   res.render('index');
-  console.log('Serving /dashboard');
+  console.log('Serving /index');
 });
 
 app.get('/:eventId', function(req, res) {
-  res.render('dashboard', {eventId: req.params.eventId});
+  console.log("get /eventId: " + req.params);
+  var id = new ObjectId(req.params.eventId);
+  db.events.find({ "_id": id}, function(err, data){
+    console.log("get /eventId :" + data);
+    res.render('dashboard', {eventId: id, event_data: data});
+  });
 });
 
 //create new event
@@ -29,19 +34,20 @@ app.post('/', function(req, res){
   var id = new ObjectId();
   var newEvent = {
     _id: id,
-    name: req.body.name,
-    time: req.body.time,
-    participants: []
-  };
-  console.log(newEvent);
+    event_name: req.body.event_name,
+    event_location: req.body.event_location,
+    event_date: req.body.event_date,
+    event_time: req.body.event_time,
+    participants: []};
   db.events.insert(newEvent, function(err, docs) {
-    console.log(arguments);
-    res.redirect("/"+id.str);
+    console.log(docs);
+    console.log("post / id: " + id);
+    res.redirect("/" + id);
   });
 });
 
 //add a participant 
-app.post('/:eventId', function(req, res){
+app.post('/:eventId/newUser', function(req, res){
   var id = req.params.eventId;
   var newParticipant = req.body.newParticipant;
   var sameNames = db.events.find({ participants: { $elemMatch: { name: newParticipant.name }}});
@@ -60,12 +66,6 @@ app.post('/:eventId', function(req, res){
             });
         });
   }
-});
-
-app.post('/:eventId/newUser', function(req, res){
-  console.log(req.params); 
-  console.log(req.query); 
-  console.log(req.body); 
 });
 
 //modify a participant
