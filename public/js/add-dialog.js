@@ -28,6 +28,7 @@ $(document).ready(function() {
             data    : $(this).serialize(),
             success : function( data ) {
                          console.log(data);
+                        $(this)[0].reset();
             },
             error   : function( xhr, err ) {
                          console.log('Error');     
@@ -37,6 +38,8 @@ $(document).ready(function() {
         var username = data[0].value;
         var phone = data[1].value;
         var loc = data[2].value;
+        console.log('data');
+        console.log(data);
         if (data[3].value === 'No') {
           $('.rider-pool').append(
             "<div class=rider><span>" + username + "</span><span style=\"float: right; margin-right: 10px\">" + phone + "</span><br><span>"+loc+"</span></div>"
@@ -57,6 +60,5 @@ $(document).ready(function() {
             );
         resize();
         }
-        $(this)[0].reset();
     });
 });
