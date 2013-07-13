@@ -49,24 +49,26 @@ app.post('/', function(req, res){
 
 //add a participant 
 app.post('/:eventId/newUser', function(req, res){
-  var id = req.params.eventId;
-  var newParticipant = req.body.newParticipant;
-  var sameNames = db.events.find({ participants: { $elemMatch: { name: newParticipant.name }}});
-  if (sameNames.length != 0) {
-    //need to handle error
-    console.log("ERROR: two participants with the same name");
-  } else {
-      db.events.update(
-        {_id: new ObjectId(id)},
-        {$push:{ participants: newParticipant }}, 
-        function(err, docs){
-          console.log(arguments);
-          db.events.find({"_id": id},
-            function(err, participants){
-              res.json(participants)
-            });
-        });
-  }
+  var id = new ObjectId(req.params.eventId);
+  var newParticipant = req.body;
+  db.events.find({ _id: id, participants: { $elemMatch: { name: newParticipant.name }}},
+    function(err, sameNames){
+      if (sameNames.length != 0) {
+        //need to handle error
+        console.log("ERROR: two participants with the same name");
+      } else {
+          db.events.update(
+            {_id: id},
+            {$push:{ participants: newParticipant }}, 
+            function(err, docs){
+              console.log(arguments);
+              db.events.find({"_id": id},
+                function(err, participants){
+                  res.json(participants)
+                });
+          });
+      }
+    });
 });
 
 //modify a participant
