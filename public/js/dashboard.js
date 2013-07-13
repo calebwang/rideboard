@@ -36,7 +36,7 @@ $(document).ready(function() {
                 });    
               }
 
-            	if(ui.item.parent().hasClass('delete')){
+            	else if(ui.item.parent().hasClass('delete')){
             		(ui.item.hide());
                 var eventPath = event.currentTarget.location.pathname;
                 var rider_name = ui.item[0].attributes[1].nodeValue;
@@ -56,6 +56,30 @@ $(document).ready(function() {
                     }
                 }); 
             	}
+              else { 
+                var driver_name = ''; 
+                var rider_name = ui.item[0].attributes[1].nodeValue;
+                var eventPath = event.currentTarget.location.pathname;
+                var myData = {
+                    'rider_name': rider_name,
+                    'driver': driver_name
+                };
+                console.log(myData)
+
+                $.ajax({
+                    url     : eventPath + '/updateRider',
+                    type    : 'put',
+                    dataType: 'json',
+                    data    : myData,
+                    success : function( data ) {
+                                 console.log(data);
+                    },
+                    error   : function( xhr, err ) {
+                                 console.log('Error');     
+                    }
+                });    
+              }
+
 
             	var grandParent = ui.item.parent().parent();
             	if (grandParent.hasClass('car')) {
