@@ -42,7 +42,8 @@ html
                                 p Location: #{driver.location}
                                 p Available Seats: 
                                         span.available 0
-                            .passengers.draggable Passengers:
+                                p Passengers:
+                            .passengers.draggable
                                 - var riders = event_data.riders;
                                     for rider in riders
                                         if rider != null && rider.driver === driver.username

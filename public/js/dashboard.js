@@ -14,7 +14,7 @@ $(document).ready(function() {
             	setSeats();
               if (ui.item.parent().hasClass('passengers')) {
                 var driver_name = ui.item.parentsUntil('.driver-pool')[1].attributes[1].nodeValue;
-                var rider_name = ui.item[0].textContent.trim();
+                var rider_name = ui.item.attr('data-li-username');
                 var eventPath = event.currentTarget.location.pathname;
                 var myData = {
                     'rider_name': rider_name,
@@ -158,7 +158,6 @@ function assign() {
 			}
 		}
 	});
-	setSeats();
 	resize();
 }
 
@@ -185,5 +184,5 @@ function manuallyAddToCar(car, person) {
             console.log('Error');     
         }
     });
-
+    setSeats();
 }
