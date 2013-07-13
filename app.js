@@ -14,17 +14,25 @@ app.set('view engine', 'jade');
 app.set('views', __dirname + '/views');
 app.locals.pretty=true;
 
+//event creation page
 app.get('/', function(req, res){
   res.render('index');
   console.log(req.params); 
   console.log('Serving /index');
 });
 
-app.get('/:eventId', function(req, res){
-  res.render('event', {eventId: req.params.eventId});
-  console.log(req.params); 
-  console.log('Serving /index');
+//create new event
+app.post('/', function(req, res){
+  var id = new ObjectId();
+  var newEvent = {
+    _id: id,
+    name: req.body.name,
+    time: req.body.time,
+    participants: []};
+  db.events.insert(newEvent);
+  res.redirect("/"+id.str);
 });
+  
 
 app.post('/:eventId', function(req, res){
   res.render('index');
