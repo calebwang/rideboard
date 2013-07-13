@@ -103,7 +103,7 @@ app.post('/:eventId/newUser', function(req, res){
   }
 });
 
-//modify a rider 
+//update a driver 
 app.put('/:eventId/updateRider', function(req, res){
   var id = new ObjectId(req.params.eventId);
   var update = req.body;
@@ -112,7 +112,22 @@ app.put('/:eventId/updateRider', function(req, res){
   db.events.update({ _id: id, 
                      riders: { $elemMatch: { username : req.body.rider_name }}
                    }, 
-                   { $set: { 'riders.$.driver': req.body.driver }},
+                   { $set: { 'riders.$.driver': req.body.driver, 'riders.$.phone': req.body.phone }},
+                   function(err, docs){
+                     console.log(arguments);
+                   });
+});
+
+//modify a rider 
+app.put('/:eventId/modifyRider', function(req, res){
+  var id = new ObjectId(req.params.eventId);
+  var update = req.body;
+  console.log('modifying user');
+  console.log(req.body)
+  db.events.update({ _id: id, 
+                     riders: { $elemMatch: { username : req.body.username }}
+                   }, 
+                   { $set: { 'riders.$.name': req.body.username, 'riders.$.phone': req.body.phone, 'riders.$.phone': req.body.location}},
                    function(err, docs){
                      console.log(arguments);
                    });
