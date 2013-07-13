@@ -39,14 +39,11 @@ html
                 br
                 - var users = event_data.participants;
                 for user in users
-                  if user != null
-                    .rider
-                        .my-text #{user.username}
-                        .my-text #{user.phone}
-                  br
-                .rider.
-                    Joe Schmoe
-                    (999) 111-2222
+                    if user != null
+                      .rider
+                          span #{user.username} 
+                          span #{user.phone}
+                br
             div#dialogModal.modal.hide.fade(tabindex='-1', role='dialog', aria-lablledby='dialogModalLabel', aria-hidden='true')
                 form#newUserForm(action='/' + eventId + '/newUser', method='post')
                     input(type='hidden', value=eventId)

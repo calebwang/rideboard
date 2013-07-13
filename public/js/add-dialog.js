@@ -22,6 +22,12 @@ $(document).ready(function() {
                          alert('Error');     
             }
         });    
+        var data = $(this).serializeArray();
+        var username = data[0].value;
+        var phone = data[1].value;
+        $('.rider-pool').append(
+          "<div class=rider><span>" + username + "</span><span>" + phone + "</span></div>"
+        );
         return false;
     });
 });

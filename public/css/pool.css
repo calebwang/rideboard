@@ -65,6 +65,7 @@
     margin-bottom: 3px;
 }
 
-.my-text {
-
+.phone {
+  float: right;
+  margin-right: 10px;
 }
