@@ -1,12 +1,17 @@
 .driver-pool {
-  padding: 1%;
-  margin-top: 0.5%;
-  margin-left: 0.5%;
-	background-color: #000000;
+    padding: 1%;
+    margin-top: 0.5%;
+    margin-left: 0.5%;
+	background-color: #333333;
 	width: 77.5%;
 	float: left;
-  border-radius: 4px;
-  height: 89%;
+    border-radius: 4px;
+    height: 89%;
+}
+
+.driver-pool h3 {
+	margin-top: 0;
+	padding-top: 0;
 }
 
 .rider-pool {
@@ -14,11 +19,20 @@
     padding: 1%;
     margin-left: 0.5%;
     margin-right: 0.5%;
-	background-color: #d0d0d0;
+	background-color: #222222;
 	width: 17%;
-  height: 89%;
+    height: 89%;
 	float: left;
     border-radius: 4px;
+    overflow: auto;
+}
+
+.rider-pool h4 {
+	text-align: center;
+}
+
+.rider-pool .rider {
+	margin-bottom: 10px;
 }
 
 .full-car {
@@ -31,18 +45,70 @@
 
 .color1 {
 	background-color: #F73E5F;
+	color: #9B001C;
+}
+
+.color1 .rider {
+	background: #F76F87;
+    border: solid #9B001C 1px;
+    border-radius: 5px;
+    padding-left: 5px;
+    margin-bottom: 3px;
+    margin-right: 10px;
+    margin-left: 15px;
+    width: 200px;	
+    color: #9B001C;
 }
 
 .color2 {
+	color: #A63E00;
 	background-color: #FF8740;
 }	
 
+.color2 .rider {
+	background: #FFA773;
+    border: solid #A63E00 1px;
+    border-radius: 5px;
+    padding-left: 5px;
+    margin-bottom: 3px;
+    margin-right: 10px;
+    margin-left: 15px;
+    width: 200px;	
+    color: #A63E00;	
+}
+
 .color3 {
 	background-color: #35D2AB;
+	color: #006C51;	
+}
+
+.color3 .rider {
+	background: #5FD2B5;
+    border: solid #006C51 1px;
+    border-radius: 5px;
+    padding-left: 5px;
+    margin-bottom: 3px;
+    margin-right: 10px;
+    margin-left: 15px;
+    width: 200px;	
+    color: #006C51;	
 }	
 
 .color4 {
-	background-color: #92ED6B;
+	background-color: #70ED3B;
+	color: #2B8E00;
+}
+
+.color4 .rider {
+	background: #92ED6B;
+    border: solid #2B8E00 1px;
+    border-radius: 5px;
+    padding-left: 5px;
+    margin-bottom: 3px;
+    margin-right: 10px;
+    margin-left: 15px;
+    width: 200px;	
+    color: #2B8E00;		
 }	
 
 .car {
@@ -53,7 +119,8 @@
 	width: 24.2%;
     padding: 0.2%;
     position: absolute;
-    height: 150px;
+    min-height: 75px;
+    border-radius: 5px 5px 5px 5px;
 }
 
 .float-right {
@@ -67,7 +134,7 @@
 .rider {
     background: #d0d0d0;
     border: solid black 1px;
-    border-radius: 2px;
+    border-radius: 5px;
     padding-left: 5px;
     margin-bottom: 3px;
     margin-right: 10px;
@@ -75,14 +142,20 @@
     width: 200px;
 }
 
+.rider:hover {
+	cursor: pointer;
+	cursor: hand;
+}
+
 .driver {
-    background: #d0d0d0;
-    border: solid black 1px;
-    border-radius: 2px;
     padding-left: 20px;
     margin-bottom: 3px;
     margin-right: 10px;
     width: 200px;
+}
+
+.driver p {
+	margin-bottom: 0;
 }
 
 
@@ -97,4 +170,12 @@
 	right: 10px;
 	height: 50px;
 	width: 50px;
+}
+
+.passengers {
+	padding-left: 20px;
+    margin-bottom: 3px;
+    margin-right: 10px;
+    width: inherit;
+    height: inherit;	
 }

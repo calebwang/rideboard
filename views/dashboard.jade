@@ -23,28 +23,30 @@ html
                 button.close(type='button', data-dismiss='alert') x
                 
             .driver-pool
+                h3 Cars
                 - var drivers = event_data.drivers;
                 for driver in drivers
                     if driver != null && driver.isDriver === 'Yes'
-                        .car(data-li-seats=driver.seats)
+                        .car(data-li-seats=driver.seats, driverName=driver.username)
                             .driver
                                 p Driver: #{driver.username}
+                                p Total Seats: #{driver.seats}
                             .passengers.draggable Passengers:
                                 - var riders = event_data.riders;
                                     for rider in riders
                                         if rider != null && rider.driver === driver.username
                                           .rider
-                                              span #{rider.username} 
-                                              span #{rider.phone}
+                                              span.username #{rider.username} 
+                                              span.phone #{rider.phone}
             .rider-pool.draggable
-                p #{event_data._id}
+                h4 People Who Need Rides
                 br
                 - var riders = event_data.riders;
                 for rider in riders
-                    if rider != null && rider.isDriver === 'No'
+                    if rider != null && rider.isDriver === 'No' && rider.driver === ''
                       .rider
-                          span #{rider.username} 
-                          span #{rider.phone}
+                          span.username #{rider.username} 
+                          span.phone #{rider.phone}
                 br
                 img.delete.draggable(src='/img/trash.png') 
             div#dialogModal.modal.hide.fade(tabindex='-1', role='dialog', aria-lablledby='dialogModalLabel', aria-hidden='true')
@@ -52,29 +54,33 @@ html
                     div.modal-header
                         h3 Add a participant
                     div.modal-body
-                        div 
-                            span Name  
-                            span.float-right
-                                input.text-input(id='name', type='text', name='username')
+                        div#modal-form 
+                            div#name-input
+                                span Name  
+                                span.float-right
+                                    input.text-input(id='name', type='text', name='username')
                             br
                             br
-                            span Phone Number 
-                            span.float-right
-                                input.text-input(id='phone', type='text', name='phone')
+                            div#phone-input
+                                span Phone Number 
+                                span.float-right
+                                    input.text-input(id='phone', type='text', name='phone')
                             br
                             br
-                            span Are you driving?
-                            span.float-right
-                                select(id = 'isDriver', name='isDriver')
-                                    option Yes
-                                    option No
+                            div#isDriver-input
+                                span Are you driving?
+                                span.float-right
+                                    select(id = 'isDriver', name='isDriver')
+                                        option Yes
+                                        option No
                             br
                             br
-                            span Seats
-                            span.float-right
-                                input.text-input(id='seats', type='text', name='seats')
+                            div#seats-input
+                                span Seats
+                                span.float-right
+                                    input.text-input(id='seats', type='text', name='seats')
                     div.modal-footer
                         a#dialog-close.btn.btn(href='#') Close
                         button#dialog-save.btn.btn-primary(type='submit') Save changes
                     input(type='hidden', value=eventId, name='eventId')
-                    input(type='hidden', value='Driver', name='driver')
+                    input(type='hidden', value='', name='driver')

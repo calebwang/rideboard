@@ -103,15 +103,35 @@ app.post('/:eventId/newUser', function(req, res){
 //modify a rider 
 app.put('/:eventId/updateRider', function(req, res){
   var id = new ObjectId(req.params.eventId);
-  var update = res.body;
+  var update = req.body;
+  console.log('modifying user');
+  console.log(req.body)
   db.events.update({ _id: id, 
-                     riders: { $elemMatch: { name : res.body.rider_name }}
+                     riders: { $elemMatch: { username : req.body.rider_name }}
                    }, 
-                   { $set: update },
+                   { $set: { 'riders.$.driver': req.body.driver }},
                    function(err, docs){
                      console.log(arguments);
                    });
 });
+
+//modify a rider 
+app.delete('/:eventId/deleteRider', function(req, res){
+  var id = new ObjectId(req.params.eventId);
+  var update = req.body;
+  console.log('deleting user');
+  console.log(req.body)
+  db.events.update({ _id: id, 
+                     riders: { $elemMatch: { username : req.body.rider_name }}
+                   }, 
+                   { $pull: {
+                       riders: {  username : req.body.rider_name }
+                   }},
+                   function(err, docs){
+                     console.log(arguments);
+                   });
+});
+
 
 var port = process.env.PORT || 8080
 
