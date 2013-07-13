@@ -13,8 +13,8 @@ app.locals.pretty=true;
 
 app.get('/', function(req, res){
   console.log(req.params); 
-  res.render('index');
-  console.log('Serving /index');
+  res.render('dashboard');
+  console.log('Serving /dashboard');
 });
 
 app.get('/:name', function(req, res){

@@ -1,0 +1,41 @@
+.driver-pool {
+	background-color: #000000;
+	width: 75%;
+	float: left;
+}
+
+.rider-pool {
+	background-color: blue;
+	width: 25%;
+	float: left;
+}
+
+.driver1 {
+	background-color: #EF002A;
+	height: 200px;
+	width: 200px;
+}
+
+.driver2 {
+	background-color: #FF5F00;
+	height: 200px;
+	width: 200px;
+}	
+
+.driver3 {
+	background-color: #5FD2B5;
+	height: 200px;
+	width: 200px;
+}	
+
+.driver4 {
+	background-color: #70ED3B;
+	height: 200px;
+	width: 200px;
+}	
+
+.car {
+	float: left;
+	margin: 3px;
+}
+
