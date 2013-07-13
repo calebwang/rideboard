@@ -5,8 +5,19 @@ $(document).ready(function() {
             connectWith: ".draggable",
             revert: 200,
             update: function(event, ui) {
-            	console.log('resize');
             	resize();
+            	if(ui.item.parent().hasClass('delete')){
+            		(ui.item.hide());
+            	}
+            	var grandParent = ui.item.parent().parent();
+            	if (grandParent.hasClass('car')) {
+            		console.log(grandParent.attr('data-li-seats')-1);
+            		console.log(ui.item.siblings().length);
+            		if (grandParent.attr('data-li-seats')-1 == ui.item.siblings().length) {
+            			$(this).sortable('cancel');
+            			$('.full-car').show();
+            		}
+            	}
             }
     });
 });
@@ -37,19 +48,36 @@ function resize() {
 		var id = '#' + $(this).attr('id');
 		var seats = parseInt($(this).attr('data-li-seats'),10);
 		var passengers = $(this).children('.passengers').children('.rider').length+1;
-		console.log(passengers);
 		if (index < cutoff) {
 			$(this).css('bottom', bottoms);
 			$(this).css('left', index*upperDiv);
 			$(this).css('width', upperDiv);
+			setColor($(this), index);
 		} else {
 			$(this).css('top', tops);
 			$(this).css('left', (index-cutoff)*lowerDiv);
 			$(this).css('width', lowerDiv);
+			setColor($(this), index+1);
 		}
-		console.log(bottoms*passengers/seats);
-		console.log(seats);
 		$(this).css('height', bottoms*passengers/seats);
 		$(this).css('margin-left', 28);
 	});
+}
+
+function setColor(item, index){
+	switch(index%4)
+	{
+		case 0:
+			item.addClass('color1');
+			break;
+		case 1:
+			item.addClass('color2');
+			break;
+		case 2:
+			item.addClass('color3');
+			break;
+		case 3:
+			item.addClass('color4');
+			break;
+	}
 }
