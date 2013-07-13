@@ -5,8 +5,11 @@
 }
 
 .rider-pool {
-	background-color: blue;
-	width: 25%;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+	background-color: #b0b0b0;
+	width: 24%;
+    height: 92%;
 	float: left;
 }
 
