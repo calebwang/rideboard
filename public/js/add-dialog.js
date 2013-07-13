@@ -36,13 +36,14 @@ $(document).ready(function() {
         var data = $(this).serializeArray();
         var username = data[0].value;
         var phone = data[1].value;
-        if (data[2].value === 'No') {
+        var loc = data[2].value;
+        if (data[3].value === 'No') {
           $('.rider-pool').append(
-            "<div class=rider><span>" + username + "</span><span style=\"float: right; margin-right: 10px\">" + phone + "</span></div>"
+            "<div class=rider><span>" + username + "</span><span style=\"float: right; margin-right: 10px\">" + phone + "</span><br><span>"+loc+"</span></div>"
           );
         }
-        if (data[2].value === 'Yes') {
-          var seats = data[3].value;
+        if (data[3].value === 'Yes') {
+          var seats = data[4].value;
             $('.driver-pool').append(
                 '<div data-li-seats="' + seats +  '" driverName="' + username + '" class="car">' +
                   '<div class="driver">' + 

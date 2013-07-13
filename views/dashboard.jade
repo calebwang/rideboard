@@ -7,6 +7,7 @@ html
         script(src='/js/dashboard.js', type='text/javascript')
         link(rel='stylesheet', type='text/css', href='/css/bootstrap.css')
         link(rel='stylesheet', type='text/css', href='/css/pool.css')
+        title Rideboard
     body
         .container-fluid
             .navbar
@@ -38,8 +39,13 @@ html
                         .car(data-li-seats=driver.seats, driverName=driver.username)
                             .driver
                                 p Driver: #{driver.username}
+<<<<<<< HEAD
                                 p Available Seats: 
                                         span.available 0
+=======
+                                p Location: #{driver.location}
+                                p Total Seats: #{driver.seats}
+>>>>>>> 551fe207cda1dfbf394b9403ff00f5e6b89ad5e6
                             .passengers.draggable Passengers:
                                 - var riders = event_data.riders;
                                     for rider in riders
@@ -47,6 +53,8 @@ html
                                           .rider
                                               span.username #{rider.username} 
                                               span.phone #{rider.phone}
+                                              br
+                                              span.location #{rider.location}
             .rider-pool.draggable
                 h4 People Who Need Rides
                 br
@@ -56,6 +64,8 @@ html
                       .rider
                           span.username #{rider.username} 
                           span.phone #{rider.phone}
+                          br
+                          span.location #{rider.location}
                 br
                 img.delete.draggable(src='/img/trash.png') 
                 i.btn.btn-inverse.assign Auto Assign
@@ -69,6 +79,12 @@ html
                                 span Name  
                                 span.float-right
                                     input.text-input(id='name', type='text', name='username')
+                            br
+                            br
+                            div#loc-input
+                                span Location 
+                                span.float-right
+                                    input.text-input(id='location', type='text', name='location')
                             br
                             br
                             div#phone-input
