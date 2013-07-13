@@ -29,6 +29,7 @@
 
 .people {
 	max-height: 82%;
+	min-height: 200px;
 }
 
 .rider-pool h4 {

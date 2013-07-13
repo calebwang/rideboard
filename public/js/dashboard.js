@@ -147,16 +147,17 @@ function setColor(item, index){
 }
 
 function assign() {
-	var index = 0;
 	var people = $('.rider-pool').children('.people').children('.rider');
-	var cars = $('.car')
-	cars.each(function() {
-		if ($(this).children('.driver').children().children('.available').text != '0') {
-			if (index < people.length) {
-				manuallyAddToCar($(this), people[index]);
-				index = index + 1;
+	var cars = $('.car');
+	people.each(function () {
+		var person = $(this);
+		cars.each(function() {
+			console.log($(this).children('.driver').children().children('.available')[0].textContent);
+			if ($(this).children('.driver').children().children('.available')[0].textContent > 0) {
+				manuallyAddToCar($(this), person);
+				setSeats();
 			}
-		}
+		});
 	});
 	resize();
 }
