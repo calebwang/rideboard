@@ -35,7 +35,7 @@ html
                 h3 Cars
                 - var drivers = event_data.drivers;
                 for driver in drivers
-                    if driver != null && driver.isDriver === 'Yes'
+                    if (driver != null && driver.isDriver === 'Yes')
                         .car(data-li-seats=driver.seats, driverName=driver.username)
                             .driver
                                 p Driver: #{driver.username}
@@ -57,12 +57,12 @@ html
                     br
                     - var riders = event_data.riders;
                     for rider in riders
-                        if rider != null && rider.isDriver === 'No' && rider.driver === ''
-                        .rider
-                            span.username #{rider.username} 
-                            span.phone #{rider.phone}
-                            br
-                            span.location #{rider.location}
+                        if (rider != null && rider.isDriver === 'No' && rider.driver === '')
+                          .rider
+                              span.username #{rider.username} 
+                              span.phone #{rider.phone}
+                              br
+                              span.location #{rider.location}
                     br
                     img.delete.draggable(src='/img/trash.png') 
                     i.btn.btn-inverse.assign Auto Assign
