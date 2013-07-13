@@ -24,12 +24,40 @@ app.get('/:eventId', function(req, res) {
   res.render('dashboard', {eventId: req.params.eventId});
 });
 
+//create new event
+app.post('/', function(req, res){
+  var id = new ObjectId();
+  var newEvent = {
+    _id: id,
+    name: req.body.name,
+    time: req.body.time,
+    participants: []};
+  db.events.insert(newEvent, function(err, docs) {
+    console.log(arguments);
+    res.redirect("/"+id.str);
+  });
+});
+
+//add a participant 
 app.post('/:eventId', function(req, res){
-  console.log(req.params); 
-  console.log(req.query); 
-  console.log(req.body); 
-  res.render('dashboard', {eventId: req.params.eventId});
-  console.log('Serving /dashboard');
+  var id = req.params.eventId;
+  var newParticipant = req.body.newParticipant;
+  var sameNames = db.events.find({ participants: { $elemMatch: { name: newParticipant.name }}});
+  if (sameNames.length != 0) {
+    //need to handle error
+    console.log("ERROR: two participants with the same name");
+  } else {
+      db.events.update(
+        {_id: new ObjectId(id)},
+        {$push:{ participants: newParticipant }}, 
+        function(err, docs){
+          console.log(arguments);
+          db.events.find({"_id": id},
+            function(err, participants){
+              res.json(participants)
+            });
+        });
+  }
 });
 
 app.post('/:eventId/newUser', function(req, res){
@@ -38,11 +66,15 @@ app.post('/:eventId/newUser', function(req, res){
   console.log(req.body); 
 });
 
-app.post('/', function(req, res){
-  console.log(req.query); 
-  res.render('index');
-  console.log('Serving /index');
+//modify a participant
+app.put('/:eventId', function(req, res){
+  var id = req.params.eventId;
+  var update = req.body.update;
+  db.events.update(update, function(err, docs){
+    console.log(arguments);
+  });
 });
+    
 
 var port = process.env.PORT || 8080
 

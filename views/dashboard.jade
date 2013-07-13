@@ -6,6 +6,14 @@ html
         script(src='/js/bootstrap.js', type='text/javascript')
         link(rel='stylesheet', type='text/css', href='/css/bootstrap.css')
         link(rel='stylesheet', type='text/css', href='/css/pool.css')
+        |<script>
+        |    $(function() {
+        |        $( ".draggable" ).sortable({
+        |            connectWith: ".draggable",
+        |            revert: 200
+        |        });
+        |    });
+        |</script>
     body
         .container-fluid
             .navbar
@@ -20,11 +28,16 @@ html
                             a#add-passenger(href='#') Add
             .driver-pool
                 .driver1.car
-                .driver2.car
-                .driver3.car
-                .driver4.car
-            .rider-pool
-                p rider one
+                    p Driver: John Doe
+                    p Driver data
+                    .passengers.draggable Passengers:
+                .driver2.car.draggable
+                .driver3.car.draggable
+                .driver4.car.draggable
+            .rider-pool.draggable
+                .rider.
+                    Joe Schmoe
+                    (999) 111-2222
             div#dialogModal.modal.hide.fade(tabindex='-1', role='dialog', aria-lablledby='dialogModalLabel', aria-hidden='true')
                 form#newUserForm(action='/' + eventId + '/newUser', method='post')
                     input(type='hidden', value=eventId)
@@ -34,7 +47,12 @@ html
                         div 
                             span Name  
                             span.float-right
-                                input(id='name', type='text', value='', name='name')
+                                input.text-input(id='name', type='text', name='name')
+                            br
+                            br
+                            span Phone Number 
+                            span.float-right
+                                input.text-input(id='phone', type='text', name='phone')
                             br
                             br
                             span Are you driving?
