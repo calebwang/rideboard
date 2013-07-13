@@ -21,12 +21,11 @@ app.get('/', function(req, res){
 });
 
 app.get('/:eventId', function(req, res) {
-  console.log("get /eventId: " + req.params.eventId);
+  console.log("get /eventId: " + req.params);
   var id = new ObjectId(req.params.eventId);
   db.events.find({ "_id": id}, function(err, data){
-    console.log(data[0]);
-    console.log("get /eventId :" + data[0]);
-    res.render('dashboard', {eventId: id, event_data: data[0]});
+    console.log("get /eventId :" + data);
+    res.render('dashboard', {eventId: id, event_data: data});
   });
 });
 
