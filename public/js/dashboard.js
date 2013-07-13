@@ -94,12 +94,12 @@ function resize() {
 			$(this).css('bottom', bottoms+31);
 			$(this).css('left', index*upperDiv-15);
 			$(this).css('width', upperDiv-10);
-			setColor($(this), index);
+			setColor($(this), passengers/seats);
 		} else {
 			$(this).css('top', tops);
 			$(this).css('left', (index-cutoff)*lowerDiv-15);
 			$(this).css('width', lowerDiv-10);
-			setColor($(this), index+3);
+			setColor($(this), passengers/seats);
 		}
 		$(this).css('height', bottoms*passengers/seats+15);
 		$(this).css('margin-left', 28);
@@ -107,19 +107,29 @@ function resize() {
 }
 
 function setColor(item, index){
-	switch(index%4)
-	{
-		case 0:
-			item.addClass('color1');
-			break;
-		case 1:
-			item.addClass('color2');
-			break;
-		case 2:
-			item.addClass('color3');
-			break;
-		case 3:
-			item.addClass('color4');
-			break;
+	if (index > 7/8) {
+		item.addClass('level8');
 	}
+	if (index > 6/8) {
+		item.addClass('level7');
+	}
+	if (index > 5/8) {
+		item.addClass('level6');
+	}
+	if (index > 4/8) {
+		item.addClass('level5');
+	}
+	if (index > 3/8) {
+		item.addClass('level4');
+	}
+	if (index > 2/8) {
+		item.addClass('level3');
+	}
+	if (index > 1/8) {
+		item.addClass('level2');
+	} else {
+		item.addClass('level1');
+	}
+
+
 }
