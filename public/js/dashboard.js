@@ -73,11 +73,11 @@ $(document).ready(function() {
 
 function resize() {
 	var height = $('.driver-pool').height();
-	var width = $('.driver-pool').width()+20;
+	var width = $('.driver-pool').width();
 	var navH = $('.navbar').height();
 
-	var tops = height/2 + navH +15;
-	var bottoms = height/2 -15;
+	var tops = height/2 + navH +20;
+	var bottoms = height/2 -20;
 
 	var cars = $('.car').length;
 
@@ -149,7 +149,7 @@ function setColor(item, index){
 
 function assign() {
 	var index = 0;
-	var people = $('.rider-pool').children('.rider');
+	var people = $('.rider-pool').children('.people').children('.rider');
 	var cars = $('.car')
 	cars.each(function() {
 		if ($(this).children('.driver').children().children('.available').text != '0') {
@@ -184,6 +184,7 @@ function manuallyAddToCar(car, person) {
         },
         error   : function( xhr, err ) {
             console.log('Error');     
-            }
-        });  	
+        }
+    });
+
 }
