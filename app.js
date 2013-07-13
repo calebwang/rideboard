@@ -17,6 +17,19 @@ app.get('/', function(req, res){
   console.log('Serving /index');
 });
 
+app.get('/:name', function(req, res){
+  console.log(req.params); 
+  res.render('index', {name: req.params.name});
+  console.log('Serving /index');
+});
+
+app.post('/', function(req, res){
+  console.log(req.query); 
+  res.render('index');
+  console.log('Serving /index');
+});
+
+
 var port = process.env.PORT || 8080
 
 app.listen(port, function() {
