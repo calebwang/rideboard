@@ -73,7 +73,9 @@ app.post('/:eventId/newUser', function(req, res){
                 console.log(arguments);
                 db.events.find({"_id": id},
                   function(err, drivers){
-                    res.json(drivers)
+                    //res.json(drivers)
+                    console.log('redirecting');
+                    res.redirect('/' + req.params.eventId);
                   });
             });
         }

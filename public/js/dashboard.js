@@ -72,7 +72,7 @@ $(document).ready(function() {
 
 function resize() {
 	var height = $('.driver-pool').height();
-	var width = $('.driver-pool').width()+15;
+	var width = $('.driver-pool').width()+20;
 	var navH = $('.navbar').height();
 
 	var tops = height/2 + navH +15;
@@ -97,7 +97,7 @@ function resize() {
 		var seats = parseInt($(this).attr('data-li-seats'),10);
 		var passengers = $(this).children('.passengers').children('.rider').length+1;
 		if (index < cutoff) {
-			$(this).css('bottom', bottoms+31);
+			$(this).css('bottom', bottoms+41);
 			$(this).css('left', index*upperDiv-15);
 			$(this).css('width', upperDiv-10);
 			$(this).css('border-top-left-radius', '5px');
