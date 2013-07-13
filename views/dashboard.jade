@@ -39,13 +39,8 @@ html
                         .car(data-li-seats=driver.seats, driverName=driver.username)
                             .driver
                                 p Driver: #{driver.username}
-<<<<<<< HEAD
                                 p Available Seats: 
                                         span.available 0
-=======
-                                p Location: #{driver.location}
-                                p Total Seats: #{driver.seats}
->>>>>>> 551fe207cda1dfbf394b9403ff00f5e6b89ad5e6
                             .passengers.draggable Passengers:
                                 - var riders = event_data.riders;
                                     for rider in riders

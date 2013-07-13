@@ -3,6 +3,7 @@ $(document).ready(function() {
 	setSeats();
 
 	$(".assign").on('click', function() {
+		alert('click');
 		assign();
 	});
 
