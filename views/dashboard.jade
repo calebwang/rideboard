@@ -30,7 +30,12 @@ html
                             .driver
                                 p Driver: #{driver.username}
                             .passengers.draggable Passengers:
-
+                                - var riders = event_data.riders;
+                                    for rider in riders
+                                        if rider != null && rider.driver === driver.username
+                                          .rider
+                                              span #{rider.username} 
+                                              span #{rider.phone}
             .rider-pool.draggable
                 p #{event_data._id}
                 br
@@ -44,7 +49,6 @@ html
                 img.delete.draggable(src='/img/trash.png') 
             div#dialogModal.modal.hide.fade(tabindex='-1', role='dialog', aria-lablledby='dialogModalLabel', aria-hidden='true')
                 form#newUserForm(action='/' + eventId + '/newUser', method='post')
-                    input(type='hidden', value=eventId)
                     div.modal-header
                         h3 Add a participant
                     div.modal-body
@@ -72,3 +76,5 @@ html
                     div.modal-footer
                         a#dialog-close.btn.btn(href='#') Close
                         button#dialog-save.btn.btn-primary(type='submit') Save changes
+                    input(type='hidden', value=eventId, name='eventId')
+                    input(type='hidden', value='Driver', name='driver')

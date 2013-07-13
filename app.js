@@ -100,15 +100,18 @@ app.post('/:eventId/newUser', function(req, res){
   }
 });
 
-//modify a participant
-app.put('/:eventId', function(req, res){
-  var id = req.params.eventId;
-  var update = req.body.update;
-  db.events.update(update, function(err, docs){
-    console.log(arguments);
-  });
+//modify a rider 
+app.put('/:eventId/updateRider', function(req, res){
+  var id = new ObjectId(req.params.eventId);
+  var update = res.body;
+  db.events.update({ _id: id, 
+                     riders: { $elemMatch: { name : res.body.rider_name }}
+                   }, 
+                   { $set: update },
+                   function(err, docs){
+                     console.log(arguments);
+                   });
 });
-    
 
 var port = process.env.PORT || 8080
 
