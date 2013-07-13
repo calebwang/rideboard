@@ -38,7 +38,8 @@ html
                         .car(data-li-seats=driver.seats, driverName=driver.username)
                             .driver
                                 p Driver: #{driver.username}
-                                p Total Seats: #{driver.seats}
+                                p Available Seats: 
+                                        span.available 0
                             .passengers.draggable Passengers:
                                 - var riders = event_data.riders;
                                     for rider in riders
@@ -57,6 +58,7 @@ html
                           span.phone #{rider.phone}
                 br
                 img.delete.draggable(src='/img/trash.png') 
+                i.btn.btn-inverse.assign Auto Assign
             div#dialogModal.modal.hide.fade(tabindex='-1', role='dialog', aria-lablledby='dialogModalLabel', aria-hidden='true')
                 form#newUserForm(action='/' + eventId + '/newUser', method='post')
                     div.modal-header

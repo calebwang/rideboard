@@ -120,7 +120,6 @@
     padding: 0.2%;
     position: absolute;
     min-height: 75px;
-    border-radius: 5px 5px 5px 5px;
 }
 
 .float-right {
@@ -140,6 +139,8 @@
     margin-right: 10px;
     margin-left: 15px;
     width: 200px;
+    line-height: 200%;
+    z-index: 9999;
 }
 
 .rider:hover {
@@ -172,6 +173,12 @@
 	width: 50px;
 }
 
+.assign {
+	position: absolute;
+	bottom: 15px;
+	right: 135px;
+}
+
 .passengers {
 	padding-left: 20px;
     margin-bottom: 3px;
@@ -180,38 +187,6 @@
     height: inherit;	
 }
 
-<<<<<<< HEAD
-.level1 {
-	background-color: #9FF781;
-}
-
-.level2 {
-	background-color: #BEF781;
-}
-
-.level3 {
-	background-color: #D8F781;
-}
-
-.level4 {
-	background-color: #F3F781;
-}
-
-.level5 {
-	background-color: #F5DA81;
-}
-
-.level6 {
-	background-color: #F7BE81;
-}
-
-.level7 {
-	background-color: #F79F81;
-}
-
-.level8 {
-	background-color: #F78181;
-=======
 a.big {
   font-size: 1.3em;
 }
@@ -223,5 +198,4 @@ a.jumbo {
 
 .pull-center {
     padding-left: 50px;
->>>>>>> 1130e3a07cd078fae2c77c786bfa632692097bd3
 }

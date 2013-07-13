@@ -1,11 +1,17 @@
 $(document).ready(function() {
 	resize();	
+	setSeats();
+
+	$(".assign").on('click', function() {
+		assign();
+	});
 
 	$( ".draggable" ).sortable({
             connectWith: ".draggable",
             revert: 200,
             update: function(event, ui) {
             	resize();
+            	setSeats();
               if (ui.item.parent().hasClass('passengers')) {
                 var driver_name = ui.item.parentsUntil('.driver-pool')[1].attributes[1].nodeValue;
                 var rider_name = ui.item[0].textContent.split(' ')[0];
@@ -16,6 +22,7 @@ $(document).ready(function() {
                     'driver': driver_name
                 };
                 console.log(myData)
+
                 $.ajax({
                     url     : eventPath + '/updateRider',
                     type    : 'put',
@@ -94,15 +101,31 @@ function resize() {
 			$(this).css('bottom', bottoms+31);
 			$(this).css('left', index*upperDiv-15);
 			$(this).css('width', upperDiv-10);
+			$(this).css('border-top-left-radius', '5px');
+			$(this).css('border-top-right-radius', '5px');
 			setColor($(this), index);
 		} else {
 			$(this).css('top', tops);
 			$(this).css('left', (index-cutoff)*lowerDiv-15);
 			$(this).css('width', lowerDiv-10);
+			$(this).css('border-bottom-right-radius', '5px');
+			$(this).css('border-bottom-left-radius', '5px');
 			setColor($(this), index+3);
 		}
 		$(this).css('height', bottoms*passengers/seats+15);
 		$(this).css('margin-left', 28);
+	});
+}
+
+function setSeats() {
+	$('.car').each(function () {
+		var num = $(this).attr('data-li-seats')-1-$(this).children('.passengers').children('.rider').length;
+		$(this).children('.driver').children().children('.available').html(num);
+		if (num == 0) {
+			$(this).css('opacity', '0.4');
+		} else {
+			$(this).css('opacity', '1');
+		}
 	});
 }
 
@@ -122,4 +145,8 @@ function setColor(item, index){
 			item.addClass('color4');
 			break;
 	}
+}
+
+function assign() {
+	console.log('assigning');
 }
