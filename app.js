@@ -103,11 +103,15 @@ app.post('/:eventId/newUser', function(req, res){
 //modify a rider 
 app.put('/:eventId/updateRider', function(req, res){
   var id = new ObjectId(req.params.eventId);
-  var update = res.body;
+  var update = req.body;
+  console.log('modifying user');
+  console.log(req.body)
+  db.events.find({_id :id,
+                  riders: { $elemMatch: { username: 'Peter' }}}, function(err, docs){console.log(docs);});
   db.events.update({ _id: id, 
-                     riders: { $elemMatch: { name : res.body.rider_name }}
+                     riders: { $elemMatch: { username : req.body.rider_name }}
                    }, 
-                   { $set: update },
+                   { $set: { 'riders.$.driver': req.body.driver }},
                    function(err, docs){
                      console.log(arguments);
                    });

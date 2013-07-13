@@ -38,7 +38,7 @@ html
                 - var drivers = event_data.drivers;
                 for driver in drivers
                     if driver != null && driver.isDriver === 'Yes'
-                        .car(data-li-seats=driver.seats)
+                        .car(data-li-seats=driver.seats, driverName=driver.username)
                             .driver
                                 p Driver: #{driver.username}
                             .passengers.draggable Passengers:
@@ -46,17 +46,17 @@ html
                                     for rider in riders
                                         if rider != null && rider.driver === driver.username
                                           .rider
-                                              span #{rider.username} 
-                                              span #{rider.phone}
+                                              span.username #{rider.username} 
+                                              span.phone #{rider.phone}
             .rider-pool.draggable
                 p #{event_data._id}
                 br
                 - var riders = event_data.riders;
                 for rider in riders
-                    if rider != null && rider.isDriver === 'No'
+                    if rider != null && rider.isDriver === 'No' && rider.driver === ''
                       .rider
-                          span #{rider.username} 
-                          span #{rider.phone}
+                          span.username #{rider.username} 
+                          span.phone #{rider.phone}
                 br
             div#dialogModal.modal.hide.fade(tabindex='-1', role='dialog', aria-lablledby='dialogModalLabel', aria-hidden='true')
                 form#newUserForm(action='/' + eventId + '/newUser', method='post')
