@@ -27,6 +27,10 @@
     overflow: auto;
 }
 
+.people {
+	max-height: 82%;
+}
+
 .rider-pool h4 {
 	text-align: center;
 }
@@ -119,7 +123,7 @@
 	width: 24.2%;
     padding: 0.2%;
     position: absolute;
-    min-height: 75px;
+    min-height: 100px;
 }
 
 .float-right {

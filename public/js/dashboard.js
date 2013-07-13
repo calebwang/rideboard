@@ -3,7 +3,6 @@ $(document).ready(function() {
 	setSeats();
 
 	$(".assign").on('click', function() {
-		alert('click');
 		assign();
 	});
 
@@ -17,7 +16,6 @@ $(document).ready(function() {
                 var driver_name = ui.item.parentsUntil('.driver-pool')[1].attributes[1].nodeValue;
                 var rider_name = ui.item[0].textContent.split(' ')[0];
                 var eventPath = event.currentTarget.location.pathname;
-                console.log(ui.item.parent())
                 var myData = {
                     'rider_name': rider_name,
                     'driver': driver_name
@@ -149,5 +147,42 @@ function setColor(item, index){
 }
 
 function assign() {
-	console.log('assigning');
+	var index = 0;
+	var people = $('.rider-pool').children('.rider');
+	var cars = $('.car')
+	cars.each(function() {
+		if ($(this).children('.driver').children().children('.available').text != '0') {
+			if (index < people.length) {
+				manuallyAddToCar($(this), people[index]);
+				index = index + 1;
+			}
+		}
+	});
+	setSeats();
+	resize();
+}
+
+function manuallyAddToCar(car, person) {
+	car.children('.passengers').append(person);
+	var driver_name = car.attr('driverName');
+    var rider_name = $.trim(jQuery(person).children('.username')[0].textContent);
+    var eventPath = location.pathname;
+    var myData = {
+        'rider_name': rider_name,
+        'driver': driver_name
+    };
+    console.log(myData)
+
+    $.ajax({
+     	url: eventPath + '/updateRider',
+        type: 'put',
+        dataType: 'json',
+        data: myData,
+        success: function( data ) {
+            console.log(data);
+        },
+        error   : function( xhr, err ) {
+            console.log('Error');     
+            }
+        });  	
 }
