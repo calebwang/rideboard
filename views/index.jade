@@ -3,9 +3,9 @@ html
     link(rel='stylesheet',href='../css/bootstrap.min.css')
     link(rel='stylesheet',href='../css/bootstrap-responsive.min.css')
     link(rel='stylesheet',href='../css/bootstrap-datetimepicker.min.css')
+    script(src='http://code.jquery.com/jquery-latest.min.js')
     script(src='../js/bootstrap-datetimepicker.min.js')
     script(src='../js/bootstrap.min.js')
-    script(src='http://code.jquery.com/jquery-latest.min.js')
 
     title Rideboard
 
@@ -40,11 +40,9 @@ html
     |  #textinput {
     |    height:30px;
     |  }
-    |  
     |  .controls-pair {
     |    display: inline-block;
     |  }
-    |
     |  .controls-pair-container {
     |    margin-left: 180px;
     |  } 
@@ -52,28 +50,28 @@ html
 
   body
     div.container(style="margin-top:100px")
-      form.form-horizontal(name="create_event",action="", method="post")
+      form.form-horizontal(name="create_event",action="/", method="post")
         fieldset
           legend Create an Event
           div.control-group
             label.control-label(for="textinput") Event Name
             div.controls
-              input#textinput.input-xlarge(type="text", name="eventName",placeholder="event name")
+              input#textinput.input-xlarge(type="text", name="event_name")
           div.control-group
             label.control-label(for="textinput") Event Location
             div.controls
-              input#textinput.input-xlarge(type="text", name="eventLocation",placeholder="event location")
+              input#textinput.input-xlarge(type="text", name="event_location")
           div.control-group
             label.control-label(for="textinput") Event Time
             div.controls-pair-container(style="margin-left:180px;")
               div.controls-pair
                 div#datetimepicker4.input-append
-                  input(data-format="yyyy-MM-dd",type="text",style="height:30px; width:105px;", name="eventDate")
+                  input(data-format="yyyy-MM-dd",type="text",style="height:30px; width:105px;",name="event_date")
                   span.add-on
                     i.icon-calendar
               div.controls-pair      
                 div#datetimepicker3.input-append(style="margin-left:2px;")
-                  input(data-format="hh:mm:ss",type="text",style="height:30px; width:105px;", name="eventTime")
+                  input(data-format="hh:mm:ss",type="text",style="height:30px; width:105px;", name="event_time")
                   span.add-on
                     i.icon-time
             script(type="text/javascript")
