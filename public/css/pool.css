@@ -1,10 +1,12 @@
 .driver-pool {
+  padding: 1%;
     margin-top: 0.5%;
     margin-left: 0.5%;
 	background-color: #000000;
-	width: 74.5%;
+	width: 77.5%;
 	float: left;
     border-radius: 4px;
+    height: 93%;
 }
 
 .rider-pool {
@@ -13,31 +15,27 @@
     margin-left: 0.5%;
     margin-right: 0.5%;
 	background-color: #d0d0d0;
-	width: 22%;
+	width: 17%;
     height: 89%;
 	float: left;
     border-radius: 4px;
 }
 
-.driver1 {
-	background-color: #EF002A;
-	height: 200px;
+#driver1 {
+	background-color: #F73E5F;
 }
 
-.driver2 {
-	background-color: #FF5F00;
-	height: 200px;
+#driver2 {
+	background-color: #FF8740;
 }	
 
-.driver3 {
-	background-color: #5FD2B5;
-	height: 200px;
+#driver3 {
+	background-color: #35D2AB;
 }	
 
-.driver4 {
-	background-color: #70ED3B;
-	height: 200px;
-    margin-right: 0.2%;
+#driver4 {
+	background-color: #92ED6B;
+
 }	
 
 .car {
@@ -47,6 +45,9 @@
 	margin-right: 0.2%;
 	width: 24.2%;
     padding: 0.2%;
+    position: absolute;
+  height: 150px;
+  background-color: #ffffff;
 }
 
 .float-right {
@@ -63,7 +64,23 @@
     border-radius: 2px;
     padding-left: 5px;
     margin-bottom: 3px;
+    margin-right: 10px;
+    margin-left: 15px;
+    width: 200px;
 }
+
+.driver {
+    background: #d0d0d0;
+    border: solid black 1px;
+    border-radius: 2px;
+    padding-left: 20px;
+    margin-bottom: 3px;
+    margin-right: 10px;
+    width: 200px;
+}
+
+
+
 
 .phone {
   float: right;
