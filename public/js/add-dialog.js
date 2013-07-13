@@ -41,6 +41,7 @@ $(document).ready(function() {
           $('.rider-pool').append(
             "<div class=rider><span>" + username + "</span><span style=\"float: right; margin-right: 10px\">" + phone + "</span><br><span>"+loc+"</span></div>"
           );
+        return false;
         }
         if (data[3].value === 'Yes') {
           var seats = data[4].value;
@@ -56,7 +57,5 @@ $(document).ready(function() {
             );
         resize();
         }
-
-        return false;
     });
 });
