@@ -56,7 +56,7 @@ $(document).ready(function() {
             );
         resize();
         }
-
+        $(this)[0].reset();
         return false;
     });
 });
