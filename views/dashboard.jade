@@ -51,27 +51,31 @@ html
                     div.modal-header
                         h3 Add a participant
                     div.modal-body
-                        div 
-                            span Name  
-                            span.float-right
-                                input.text-input(id='name', type='text', name='username')
+                        div#modal-form 
+                            div#name-input
+                                span Name  
+                                span.float-right
+                                    input.text-input(id='name', type='text', name='username')
                             br
                             br
-                            span Phone Number 
-                            span.float-right
-                                input.text-input(id='phone', type='text', name='phone')
+                            div#phone-input
+                                span Phone Number 
+                                span.float-right
+                                    input.text-input(id='phone', type='text', name='phone')
                             br
                             br
-                            span Are you driving?
-                            span.float-right
-                                select(id = 'isDriver', name='isDriver')
-                                    option Yes
-                                    option No
+                            div#isDriver-input
+                                span Are you driving?
+                                span.float-right
+                                    select(id = 'isDriver', name='isDriver')
+                                        option Yes
+                                        option No
                             br
                             br
-                            span Seats
-                            span.float-right
-                                input.text-input(id='seats', type='text', name='seats')
+                            div#seats-input
+                                span Seats
+                                span.float-right
+                                    input.text-input(id='seats', type='text', name='seats')
                     div.modal-footer
                         a#dialog-close.btn.btn(href='#') Close
                         button#dialog-save.btn.btn-primary(type='submit') Save changes

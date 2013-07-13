@@ -9,6 +9,17 @@ $(document).ready(function() {
         $('#dialogModal').modal('hide');
     });
 
+    $('#seats-input').hide();
+    if ($('#isDriver').val() === 'Yes') {
+        $('#seats-input').show();
+    }
+    $('#isDriver').change(function() {
+        $('#seats-input').hide();
+        if ($(this).val() === 'Yes') {
+            $('#seats-input').show();
+        }
+    });
+
     $('#dialogModal').on('submit', 'form#newUserForm', function() {            
         $.ajax({
             url     : $(this).attr('action'),
