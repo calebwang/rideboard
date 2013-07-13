@@ -43,7 +43,9 @@ app.post('/', function(req, res){
     event_location: req.body.event_location,
     event_date: req.body.event_date,
     event_time: req.body.event_time,
-    participants: []};
+    drivers: [],
+    riders: []
+  };
   db.events.insert(newEvent, function(err, docs) {
     console.log(docs);
     console.log("post / id: " + id);
@@ -57,24 +59,45 @@ app.post('/:eventId/newUser', function(req, res){
   var newParticipant = req.body;
   console.log('Adding new user');
   console.log(req.body);
-  db.events.find({ _id: id, participants: { $elemMatch: { username: newParticipant.username }}},
-    function(err, sameNames){
-      if (sameNames.length != 0) {
-        //need to handle error
-        console.log("ERROR: two participants with the same name");
-      } else {
-          db.events.update(
-            {_id: id},
-            {$push:{ participants: newParticipant }}, 
-            function(err, docs){
-              console.log(arguments);
-              db.events.find({"_id": id},
-                function(err, participants){
-                  res.json(participants)
-                });
-          });
-      }
-    });
+  if (req.body.isDriver === "Yes") { 
+    db.events.find({ _id: id, drivers: { $elemMatch: { username: newParticipant.username }}},
+      function(err, sameNames){
+        if (sameNames.length != 0) {
+          //need to handle error
+          console.log("ERROR: two drivers with the same name");
+        } else {
+            db.events.update(
+              {_id: id},
+              {$push:{ drivers: newParticipant }}, 
+              function(err, docs){
+                console.log(arguments);
+                db.events.find({"_id": id},
+                  function(err, drivers){
+                    res.json(drivers)
+                  });
+            });
+        }
+      });
+  } else {
+    db.events.find({ _id: id, riders: { $elemMatch: { username: newParticipant.username }}},
+      function(err, sameNames){
+        if (sameNames.length != 0) {
+          //need to handle error
+          console.log("ERROR: two riders with the same name");
+        } else {
+            db.events.update(
+              {_id: id},
+              {$push:{ riders: newParticipant }}, 
+              function(err, docs){
+                console.log(arguments);
+                db.events.find({"_id": id},
+                  function(err, riders){
+                    res.json(riders)
+                  });
+            });
+        }
+      });
+  }
 });
 
 //modify a participant
