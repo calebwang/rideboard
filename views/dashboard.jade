@@ -38,6 +38,7 @@ html
                         .car(data-li-seats=driver.seats, driverName=driver.username)
                             .driver
                                 p Driver: #{driver.username}
+                                p Location: #{driver.location}
                                 p Total Seats: #{driver.seats}
                             .passengers.draggable Passengers:
                                 - var riders = event_data.riders;
@@ -46,6 +47,8 @@ html
                                           .rider
                                               span.username #{rider.username} 
                                               span.phone #{rider.phone}
+                                              br
+                                              span.location #{rider.location}
             .rider-pool.draggable
                 h4 People Who Need Rides
                 br
@@ -55,6 +58,8 @@ html
                       .rider
                           span.username #{rider.username} 
                           span.phone #{rider.phone}
+                          br
+                          span.location #{rider.location}
                 br
                 img.delete.draggable(src='/img/trash.png') 
             div#dialogModal.modal.hide.fade(tabindex='-1', role='dialog', aria-lablledby='dialogModalLabel', aria-hidden='true')
@@ -67,6 +72,12 @@ html
                                 span Name  
                                 span.float-right
                                     input.text-input(id='name', type='text', name='username')
+                            br
+                            br
+                            div#loc-input
+                                span Location 
+                                span.float-right
+                                    input.text-input(id='location', type='text', name='location')
                             br
                             br
                             div#phone-input
