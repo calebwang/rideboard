@@ -26,7 +26,7 @@ $(document).ready(function() {
         var username = data[0].value;
         var phone = data[1].value;
         $('.rider-pool').append(
-          "<div class=rider><span>" + username + "</span><span>" + phone + "</span></div>"
+          "<div class=rider><span>" + username + "</span><span style=\"float: right; margin-right: 10px\">" + phone + "</span></div>"
         );
         return false;
     });
