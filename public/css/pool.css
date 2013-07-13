@@ -19,7 +19,7 @@
     padding: 1%;
     margin-left: 0.5%;
     margin-right: 0.5%;
-	background-color: #222222;
+	background-color: #00ccff;
 	width: 17%;
     height: 89%;
 	float: left;
@@ -180,6 +180,7 @@
     height: inherit;	
 }
 
+<<<<<<< HEAD
 .level1 {
 	background-color: #9FF781;
 }
@@ -210,4 +211,17 @@
 
 .level8 {
 	background-color: #F78181;
+=======
+a.big {
+  font-size: 1.3em;
+}
+
+a.jumbo {
+  font-size: 1.3em;
+}
+
+
+.pull-center {
+    padding-left: 50px;
+>>>>>>> 1130e3a07cd078fae2c77c786bfa632692097bd3
 }

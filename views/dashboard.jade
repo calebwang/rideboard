@@ -12,10 +12,18 @@ html
             .navbar
                 .navbar-inner
                     .brand
-                        a(href='/') Rideboard
-                    ul.nav
+                        a.jumbo(href='/') Rideboard
+                    ul.nav.pull-center
                         li 
-                            a(href='/' + eventId) #{event_data.event_name}
+                            a.big(href='/' + eventId) #{event_data.event_name}
+                        li 
+                            a.big |
+                        li 
+                            a.big #{event_data.event_location}
+                        li 
+                            a.big |
+                        li 
+                            a.big #{event_data.event_date} #{event_data.event_time}
                     ul.nav.pull-right
                         li
                             a#add-passenger(href='#') Add
@@ -71,8 +79,8 @@ html
                                 span Are you driving?
                                 span.float-right
                                     select(id = 'isDriver', name='isDriver')
-                                        option Yes
                                         option No
+                                        option Yes
                             br
                             br
                             div#seats-input
