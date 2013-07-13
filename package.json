@@ -1,0 +1,17 @@
+{
+    "author": "Caleb Wang",
+    "name": "calebwang",
+    "version": "0.1.0",
+    "main": "app.js",
+    "private": "true",
+    "engines":{
+        "node": "0.8.x",
+        "npm": "1.1.x"
+    },
+    "dependencies": {
+        "express":"3.0.x",
+        "jade":"0.27.x",
+        "connect":"2.x",
+        "mongojs":"0.7.x"
+    }
+}
