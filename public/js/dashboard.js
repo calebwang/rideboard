@@ -79,8 +79,6 @@ $(document).ready(function() {
                     }
                 });    
               }
-
-
             	var grandParent = ui.item.parent().parent();
             	if (grandParent.hasClass('car')) {
             		console.log(grandParent.attr('data-li-seats')-1);
