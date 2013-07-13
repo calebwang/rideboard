@@ -20,8 +20,8 @@ app.get('/', function(req, res){
   console.log('Serving /index');
 });
 
-app.get('/:name', function(req, res){
-  res.render('index', {name: req.params.name});
+app.get('/:eventId', function(req, res){
+  res.render('event', {eventId: req.params.eventId});
   console.log(req.params); 
   console.log('Serving /index');
 });
