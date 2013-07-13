@@ -1,6 +1,9 @@
 var express = require('express');
 var app = express();
 var connect = require('connect')
+var databaseUrl = 'rideboard-db';
+var collections = ['events'];
+var db = require('mongojs').connect(databaseUrl, collections);
 
 app.use(express.bodyParser());
 app.use(connect.compress());
@@ -12,20 +15,20 @@ app.set('views', __dirname + '/views');
 app.locals.pretty=true;
 
 app.get('/', function(req, res){
-  console.log(req.params); 
   res.render('index');
+  console.log(req.params); 
   console.log('Serving /index');
 });
 
 app.get('/:name', function(req, res){
-  console.log(req.params); 
   res.render('index', {name: req.params.name});
+  console.log(req.params); 
   console.log('Serving /index');
 });
 
 app.post('/', function(req, res){
-  console.log(req.query); 
   res.render('index');
+  console.log(req.query); 
   console.log('Serving /index');
 });
 
