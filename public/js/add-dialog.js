@@ -17,6 +17,7 @@ $(document).ready(function() {
             data    : $(this).serialize(),
             success : function( data ) {
                          alert('Submitted');
+                         console.log(data);
             },
             error   : function( xhr, err ) {
                          alert('Error');     
