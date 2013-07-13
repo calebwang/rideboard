@@ -10,6 +10,7 @@ $(document).ready(function() {
             connectWith: ".draggable",
             revert: 200,
             update: function(event, ui) {
+            	event.preventDefault();
             	resize();
             	setSeats();
               if (ui.item.parent().hasClass('passengers')) {

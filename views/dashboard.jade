@@ -108,3 +108,46 @@ html
                         button#dialog-save.btn.btn-primary(type='submit') Save changes
                     input(type='hidden', value=eventId, name='eventId')
                     input(type='hidden', value='', name='driver')
+
+            div#dialogModal2.modal.hide.fade(tabindex='-1', role='dialog', aria-lablledby='dialogModalLabel', aria-hidden='true')
+                form#updateRider(action='/' + eventId + '/updateRider', method='put')
+                    div.modal-header
+                        h3 Update a rider
+                    div.modal-body
+                        div#modal-form2 
+                            div#name-input2
+                                span Name  
+                                span.float-right
+                                    input.text-input(id='name2', type='text', name='username')
+                            br
+                            br
+                            div#loc-input2
+                                span Location 
+                                span.float-right
+                                    input.text-input(id='location2', type='text', name='location')
+                            br
+                            br
+                            div#phone-input2
+                                span Phone Number 
+                                span.float-right
+                                    input.text-input(id='phone2', type='text', name='phone')
+                            br
+                            br
+                            div#isDriver-input2
+                                span Are you driving?
+                                span.float-right
+                                    select(id = 'isDriver2', name='isDriver')
+                                        option No
+                                        option Yes
+                            br
+                            br
+                            div#seats-input2
+                                span Seats
+                                span.float-right
+                                    input.text-input(id='seats', type='text', name='seats')
+                    div.modal-footer
+                        a#dialog-close2.btn.btn(href='#') Close
+                        button#dialog-save2.btn.btn-primary(type='submit') Save changes
+                    input(type='hidden', value=eventId, name='eventId')
+                    input(type='hidden', value='', name='driver')
+
