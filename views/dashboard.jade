@@ -46,11 +46,11 @@ html
                                 - var riders = event_data.riders;
                                     for rider in riders
                                         if rider != null && rider.driver === driver.username
-                                          .rider
-                                              span.username #{rider.username} 
-                                              span.phone #{rider.phone}
-                                              br
-                                              span.location #{rider.location}
+                                            .rider(data-li-username=rider.username)
+                                                span.username #{rider.username} 
+                                                span.phone #{rider.phone}
+                                                br
+                                                span.location #{rider.location}
             .rider-pool
                 h4 People Who Need Rides
                 .people.draggable
