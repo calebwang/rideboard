@@ -9,8 +9,15 @@ $(document).ready(function() {
 	$( ".draggable" ).sortable({
             connectWith: ".draggable",
             revert: 200,
+            helper: 'clone',
+            start: function(event, ui) {
+            	ui.item.bind("click.prevent",
+                	function(event) { event.preventDefault(); });
+        	},
+        	stop: function(event, ui) {
+            	setTimeout(function(){ui.item.unbind("click.prevent");}, 300);
+        	},
             update: function(event, ui) {
-            	event.preventDefault();
             	resize();
             	setSeats();
               if (ui.item.parent().hasClass('passengers')) {
