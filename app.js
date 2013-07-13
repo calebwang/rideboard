@@ -31,7 +31,9 @@ app.post('/', function(req, res){
     _id: id,
     name: req.body.name,
     time: req.body.time,
-    participants: []};
+    participants: []
+  };
+  console.log(newEvent);
   db.events.insert(newEvent, function(err, docs) {
     console.log(arguments);
     res.redirect("/"+id.str);

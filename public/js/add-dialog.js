@@ -16,7 +16,6 @@ $(document).ready(function() {
             dataType: 'json',
             data    : $(this).serialize(),
             success : function( data ) {
-                         alert('Submitted');
                          console.log(data);
             },
             error   : function( xhr, err ) {
