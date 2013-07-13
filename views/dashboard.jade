@@ -58,7 +58,7 @@ html
                     - var riders = event_data.riders;
                     for rider in riders
                         if (rider != null && rider.isDriver === 'No' && rider.driver === '')
-                          .rider
+                          .rider(data-li-username=rider.username)
                               span.username #{rider.username} 
                               span.phone #{rider.phone}
                               br

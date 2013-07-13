@@ -14,7 +14,7 @@ $(document).ready(function() {
             	setSeats();
               if (ui.item.parent().hasClass('passengers')) {
                 var driver_name = ui.item.parentsUntil('.driver-pool')[1].attributes[1].nodeValue;
-                var rider_name = ui.item[0].textContent.split(' ')[0];
+                var rider_name = ui.item[0].textContent.trim();
                 var eventPath = event.currentTarget.location.pathname;
                 var myData = {
                     'rider_name': rider_name,
@@ -39,7 +39,7 @@ $(document).ready(function() {
             	if(ui.item.parent().hasClass('delete')){
             		(ui.item.hide());
                 var eventPath = event.currentTarget.location.pathname;
-                var rider_name = ui.item[0].textContent.split(' ')[0];
+                var rider_name = ui.item[0].textContent.trim();
                 var myData = {
                     'rider_name': rider_name,
                 };

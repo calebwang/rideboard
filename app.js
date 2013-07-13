@@ -94,7 +94,8 @@ app.post('/:eventId/newUser', function(req, res){
                 console.log(arguments);
                 db.events.find({"_id": id},
                   function(err, riders){
-                    res.json(riders)
+                    //res.json(riders)
+                    res.redirect('/' + req.params.eventId);
                   });
             });
         }
