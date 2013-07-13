@@ -58,22 +58,22 @@ html
           div.control-group
             label.control-label(for="textinput") Event Name
             div.controls
-              input#textinput.input-xlarge(type="text", name="textinput",placeholder="event name")
+              input#textinput.input-xlarge(type="text", name="eventName",placeholder="event name")
           div.control-group
             label.control-label(for="textinput") Event Location
             div.controls
-              input#textinput.input-xlarge(type="text", name="textinput",placeholder="event location")
+              input#textinput.input-xlarge(type="text", name="eventLocation",placeholder="event location")
           div.control-group
             label.control-label(for="textinput") Event Time
             div.controls-pair-container(style="margin-left:180px;")
               div.controls-pair
                 div#datetimepicker4.input-append
-                  input(data-format="yyyy-MM-dd",type="text",style="height:30px; width:105px;")
+                  input(data-format="yyyy-MM-dd",type="text",style="height:30px; width:105px;", name="eventDate")
                   span.add-on
                     i.icon-calendar
               div.controls-pair      
                 div#datetimepicker3.input-append(style="margin-left:2px;")
-                  input(data-format="hh:mm:ss",type="text",style="height:30px; width:105px;")
+                  input(data-format="hh:mm:ss",type="text",style="height:30px; width:105px;", name="eventTime")
                   span.add-on
                     i.icon-time
             script(type="text/javascript")
