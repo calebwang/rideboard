@@ -1,3 +1,86 @@
 html
+  head
+    link(rel='stylesheet',href='../css/bootstrap.min.css')
+    link(rel='stylesheet',href='../css/bootstrap-responsive.min.css')
+    link(rel='stylesheet',href='../css/bootstrap-datetimepicker.min.css')
+    script(src='../js/bootstrap-datetimepicker.min.js')
+    script(src='../js/bootstrap.min.js')
+    script(src='http://code.jquery.com/jquery-latest.min.js')
+
+    title Rideboard
+
+    |<style type="text/css">
+    |  body {
+    |    background-image: url("../img/background.jpg");
+    |    background-repeat: no-repeat;
+    |    background-position: center center;
+    |    background-attachment: fixed;
+    |    -webkit-background-size: cover;
+    |    -moz-background-size: cover;
+    |    -o-background-size: cover;
+    |    background-size: cover;
+    |    padding-top: 30px;
+    |    padding-bottom: 20px;
+    |    background-color: #f5f5f5;
+    |  } 
+    |  .form-horizontal {
+    |    max-width: 480px;
+    |    padding: 20px;
+    |    margin: 0 auto 20px;
+    |    background-color: #fff;
+    |    border: 1px solid #e5e5e5;
+    |    opacity:0.95;
+    |    -webkit-border-radius: 5px;
+    |       -moz-border-radius: 5px;
+    |            border-radius: 5px;
+    |    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+    |       -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+    |            box-shadow: 0 1px 2px rgba(0,0,0,.05);
+    |  }
+    |  #textinput {
+    |    height:30px;
+    |  }
+    |  
+    | 
+    |</style>
+
   body
-    h1 hello world
+    div.container(style="margin-top:100px")
+      form.form-horizontal(name="create_event",action="", method="post")
+        fieldset
+          legend Create a Event
+          div.control-group
+            label.control-label(for="textinput") Event Name
+            div.controls
+              input#textinput.input-xlarge(type="text", name="textinput",placeholder="event name")
+          div.control-group
+            label.control-label(for="textinput") Event Location
+            div.controls
+              input#textinput.input-xlarge(type="text", name="textinput",placeholder="event location")
+          div.control-group
+            label.control-label(for="textinput") Event Time
+            div.controls
+              div#datetimepicker4.input-append
+                input(data-format="yyyy-MM-dd",type="text",style="height:30px")
+                span.add-on
+                  i.icon-calendar
+            br
+            div.controls      
+              div#datetimepicker3.input-append
+                input(data-format="hh:mm:ss",type="text",style="height:30px")
+                span.add-on
+                  i.icon-time
+            script(type="text/javascript")
+              $(function() {
+                $('#datetimepicker3').datetimepicker({
+                  pickDate: false
+                });
+                $('#datetimepicker4').datetimepicker({
+                  pickTime: false
+                });
+              });
+          div.control-group
+            div.controls
+              button#singlebutton.btn.btn-primary(name="singlebutton") Creat Event  
+                span.add-on
+                  i.icon-ok-sign
