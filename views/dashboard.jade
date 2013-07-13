@@ -37,9 +37,9 @@ html
             .rider-pool.draggable
                 p #{event_data._id}
                 br
-                - var users = event_data.participants;
+                - var users = event_data.riders;
                 for user in users
-                    if user != null
+                    if user != null && user.isDriver === 'No'
                       .rider
                           span #{user.username} 
                           span #{user.phone}
@@ -63,7 +63,7 @@ html
                             br
                             span Are you driving?
                             span.float-right
-                                select(id = 'driver', name='driver')
+                                select(id = 'isDriver', name='isDriver')
                                     option Yes
                                     option No
                     div.modal-footer
