@@ -41,14 +41,20 @@ html
     |    height:30px;
     |  }
     |  
-    | 
+    |  .controls-pair {
+    |    display: inline-block;
+    |  }
+    |
+    |  .controls-pair-container {
+    |    margin-left: 180px;
+    |  } 
     |</style>
 
   body
     div.container(style="margin-top:100px")
       form.form-horizontal(name="create_event",action="", method="post")
         fieldset
-          legend Create a Event
+          legend Create an Event
           div.control-group
             label.control-label(for="textinput") Event Name
             div.controls
@@ -59,17 +65,17 @@ html
               input#textinput.input-xlarge(type="text", name="textinput",placeholder="event location")
           div.control-group
             label.control-label(for="textinput") Event Time
-            div.controls
-              div#datetimepicker4.input-append
-                input(data-format="yyyy-MM-dd",type="text",style="height:30px")
-                span.add-on
-                  i.icon-calendar
-            br
-            div.controls      
-              div#datetimepicker3.input-append
-                input(data-format="hh:mm:ss",type="text",style="height:30px")
-                span.add-on
-                  i.icon-time
+            div.controls-pair-container(style="margin-left:180px;")
+              div.controls-pair
+                div#datetimepicker4.input-append
+                  input(data-format="yyyy-MM-dd",type="text",style="height:30px; width:105px;")
+                  span.add-on
+                    i.icon-calendar
+              div.controls-pair      
+                div#datetimepicker3.input-append(style="margin-left:2px;")
+                  input(data-format="hh:mm:ss",type="text",style="height:30px; width:105px;")
+                  span.add-on
+                    i.icon-time
             script(type="text/javascript")
               $(function() {
                 $('#datetimepicker3').datetimepicker({
@@ -81,6 +87,6 @@ html
               });
           div.control-group
             div.controls
-              button#singlebutton.btn.btn-primary(name="singlebutton") Creat Event  
+              button#singlebutton.btn.btn-primary(name="singlebutton") Create Event  
                 span.add-on
                   i.icon-ok-sign
