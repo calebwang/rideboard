@@ -181,6 +181,38 @@
     height: inherit;	
 }
 
+<<<<<<< HEAD
+.level1 {
+	background-color: #9FF781;
+}
+
+.level2 {
+	background-color: #BEF781;
+}
+
+.level3 {
+	background-color: #D8F781;
+}
+
+.level4 {
+	background-color: #F3F781;
+}
+
+.level5 {
+	background-color: #F5DA81;
+}
+
+.level6 {
+	background-color: #F7BE81;
+}
+
+.level7 {
+	background-color: #F79F81;
+}
+
+.level8 {
+	background-color: #F78181;
+=======
 a.big {
   font-size: 1.3em;
 }
@@ -192,4 +224,5 @@ a.jumbo {
 
 .pull-center {
     padding-left: 50px;
+>>>>>>> 1130e3a07cd078fae2c77c786bfa632692097bd3
 }
