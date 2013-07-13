@@ -16,29 +16,33 @@
 .driver1 {
 	background-color: #EF002A;
 	height: 200px;
-	width: 200px;
+	width: 24.6%;
+    margin-left: 0.2%;
 }
 
 .driver2 {
 	background-color: #FF5F00;
 	height: 200px;
-	width: 200px;
+	width: 24.6%;
 }	
 
 .driver3 {
 	background-color: #5FD2B5;
 	height: 200px;
-	width: 200px;
+	width: 24.6%;
 }	
 
 .driver4 {
 	background-color: #70ED3B;
 	height: 200px;
-	width: 200px;
+	width: 24.6%;
+    margin-right: 0.2%;
 }	
 
 .car {
 	float: left;
-	margin: 3px;
+    margin: 3px;
+	margin-left: 0.2%;
+	margin-right: 0.2%;
 }
 
