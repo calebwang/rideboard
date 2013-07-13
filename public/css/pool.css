@@ -21,21 +21,28 @@
     border-radius: 4px;
 }
 
-#driver1 {
+.full-car {
+	position: absolute;
+	top: 40px;
+	width: 96%;
+	z-index: 9;
+	display: none;
+}
+
+.color1 {
 	background-color: #F73E5F;
 }
 
-#driver2 {
+.color2 {
 	background-color: #FF8740;
 }	
 
-#driver3 {
+.color3 {
 	background-color: #35D2AB;
 }	
 
-#driver4 {
+.color4 {
 	background-color: #92ED6B;
-
 }	
 
 .car {
@@ -46,8 +53,7 @@
 	width: 24.2%;
     padding: 0.2%;
     position: absolute;
-  height: 150px;
-  background-color: #ffffff;
+    height: 150px;
 }
 
 .float-right {
@@ -83,4 +89,12 @@
 .phone {
   float: right;
   margin-right: 10px;
+}
+
+.delete {
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	height: 50px;
+	width: 50px;
 }

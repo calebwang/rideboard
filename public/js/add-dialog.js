@@ -19,7 +19,7 @@ $(document).ready(function() {
                          console.log(data);
             },
             error   : function( xhr, err ) {
-                         alert('Error');     
+                         console.log('Error');     
             }
         });    
         var data = $(this).serializeArray();
