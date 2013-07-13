@@ -26,12 +26,22 @@ html
             .rider-pool
                 p rider one
             div#dialogModal.modal.hide.fade(tabindex='-1', role='dialog', aria-lablledby='dialogModalLabel', aria-hidden='true')
-                form#addForm(action='/' + eventId, method='post')
+                form#newUserForm(action='/' + eventId + '/newUser', method='post')
+                    input(type='hidden', value=eventId)
                     div.modal-header
                         h3 Add a participant
                     div.modal-body
-                        p heyyy girlll
-                        input(id='email', type='text', value='', name='email')
+                        div 
+                            span Name  
+                            span.float-right
+                                input(id='name', type='text', value='', name='name')
+                            br
+                            br
+                            span Are you driving?
+                            span.float-right
+                                select(id = 'driver', name='driver')
+                                    option Yes
+                                    option No
                     div.modal-footer
                         a#dialog-close.btn.btn(href='#') Close
                         button#dialog-save.btn.btn-primary(type='submit') Save changes

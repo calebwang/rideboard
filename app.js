@@ -3,7 +3,7 @@ var app = express();
 var connect = require('connect');
 var databaseUrl = 'rideboard-db';
 var collections = ['events'];
-var db = require.('mongojs').connect(databaseUrl, collections);
+var db = require('mongojs').connect(databaseUrl, collections);
 
 app.use(express.bodyParser());
 app.use(connect.compress());
@@ -21,11 +21,7 @@ app.get('/', function(req, res){
 });
 
 app.get('/:eventId', function(req, res) {
-  var mycoll = db.collection('test');
-  var cursor = mycoll.find().toArray(function(err, items) {
-    console.log(items);
-    res.render('dashboard', items);
-  });
+  res.render('dashboard', {eventId: req.params.eventId});
 });
 
 app.post('/:eventId', function(req, res){
@@ -34,6 +30,12 @@ app.post('/:eventId', function(req, res){
   console.log(req.body); 
   res.render('dashboard', {eventId: req.params.eventId});
   console.log('Serving /dashboard');
+});
+
+app.post('/:eventId/newUser', function(req, res){
+  console.log(req.params); 
+  console.log(req.query); 
+  console.log(req.body); 
 });
 
 app.post('/', function(req, res){
