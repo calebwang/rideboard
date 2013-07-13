@@ -17,10 +17,12 @@ app.get('/', function(req, res){
   console.log('Serving /dashboard');
 });
 
-app.get('/:eventId', function(req, res){
-  console.log(req.params); 
-  res.render('dashboard', {eventId: req.params.eventId});
-  console.log('Serving /dashboard');
+app.get('/:eventId', function(req, res) {
+  var mycoll = db.collection('test');
+  var cursor = mycoll.find().toArray(function(err, items) {
+    console.log(items);
+    res.render('dashboard', items);
+  });
 });
 
 app.post('/:eventId', function(req, res){
