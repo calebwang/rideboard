@@ -59,7 +59,12 @@
 
 .rider {
     background: #d0d0d0;
-	border: solid black 1px;
+    border: solid black 1px;
     border-radius: 2px;
     padding-left: 5px;
+    margin-bottom: 3px;
+}
+
+.my-text {
+
 }

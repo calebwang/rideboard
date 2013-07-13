@@ -25,8 +25,12 @@ app.get('/:eventId', function(req, res) {
   var id = new ObjectId(req.params.eventId);
   db.events.find({ "_id": id}, function(err, data){
     console.log(data[0]);
-    console.log("get /eventId :" + data);
-    res.render('dashboard', {eventId: id, event_data: data});
+    console.log(data[0].participants);
+    console.log("get /eventId :" + data[0]);
+    res.render('dashboard', {
+      eventId: id, 
+      event_data: data[0]
+    });
   });
 });
 
@@ -51,7 +55,9 @@ app.post('/', function(req, res){
 app.post('/:eventId/newUser', function(req, res){
   var id = new ObjectId(req.params.eventId);
   var newParticipant = req.body;
-  db.events.find({ _id: id, participants: { $elemMatch: { name: newParticipant.name }}},
+  console.log('Adding new user');
+  console.log(req.body);
+  db.events.find({ _id: id, participants: { $elemMatch: { username: newParticipant.username }}},
     function(err, sameNames){
       if (sameNames.length != 0) {
         //need to handle error

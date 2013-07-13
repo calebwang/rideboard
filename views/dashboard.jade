@@ -35,6 +35,15 @@ html
                 .driver3.car.draggable
                 .driver4.car.draggable
             .rider-pool.draggable
+                p #{event_data._id}
+                br
+                - var users = event_data.participants;
+                for user in users
+                  if user != null
+                    .rider
+                        .my-text #{user.username}
+                        .my-text #{user.phone}
+                  br
                 .rider.
                     Joe Schmoe
                     (999) 111-2222
@@ -47,7 +56,7 @@ html
                         div 
                             span Name  
                             span.float-right
-                                input.text-input(id='name', type='text', name='name')
+                                input.text-input(id='name', type='text', name='username')
                             br
                             br
                             span Phone Number 
