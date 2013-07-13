@@ -17,10 +17,18 @@ app.get('/', function(req, res){
   console.log('Serving /dashboard');
 });
 
-app.get('/:name', function(req, res){
+app.get('/:eventId', function(req, res){
   console.log(req.params); 
-  res.render('index', {name: req.params.name});
-  console.log('Serving /index');
+  res.render('dashboard', {eventId: req.params.eventId});
+  console.log('Serving /dashboard');
+});
+
+app.post('/:eventId', function(req, res){
+  console.log(req.params); 
+  console.log(req.query); 
+  console.log(req.body); 
+  res.render('dashboard', {eventId: req.params.eventId});
+  console.log('Serving /dashboard');
 });
 
 app.post('/', function(req, res){
@@ -28,7 +36,6 @@ app.post('/', function(req, res){
   res.render('index');
   console.log('Serving /index');
 });
-
 
 var port = process.env.PORT || 8080
 

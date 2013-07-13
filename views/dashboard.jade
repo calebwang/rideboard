@@ -14,7 +14,7 @@ html
                         a(href='/') Rideboard
                     ul.nav
                         li 
-                            a Event
+                            a(href='/' + eventId) Event
                     ul.nav.pull-right
                         li
                             a#add-passenger(href='#') Add
@@ -26,9 +26,12 @@ html
             .rider-pool
                 p rider one
             div#dialogModal.modal.hide.fade(tabindex='-1', role='dialog', aria-lablledby='dialogModalLabel', aria-hidden='true')
-                div.modal-header
-                div.modal-body
-                    p heyyy girlll
-                div.modal-footer
-                    a#dialog-close.btn.btn(href='#') Close
-                    a#dialog-save.btn.btn-primary(href='#') Save changes
+                form#addForm(action='/' + eventId, method='post')
+                    div.modal-header
+                        h3 Add a participant
+                    div.modal-body
+                        p heyyy girlll
+                        input(id='email', type='text', value='', name='email')
+                    div.modal-footer
+                        a#dialog-close.btn.btn(href='#') Close
+                        button#dialog-save.btn.btn-primary(type='submit') Save changes
