@@ -1,5 +1,7 @@
+$(window).load(function() {
+  resize();
+});
 $(document).ready(function() {
-	resize();	
 	setSeats();
 
 	$(".assign").on('click', function() {
@@ -217,3 +219,4 @@ function manuallyAddToCar(car, person) {
     });
     setSeats();
 }
+
