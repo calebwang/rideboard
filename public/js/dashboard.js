@@ -220,9 +220,3 @@ function manuallyAddToCar(car, person) {
     setSeats();
 }
 
-<<<<<<< HEAD
-=======
-$(window).load(function() {
-  resize();
-});
->>>>>>> 103e96475b7bf3a9e1f18add4d705673a42feeb5
