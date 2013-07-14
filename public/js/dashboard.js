@@ -1,3 +1,4 @@
+resize();
 $(document).ready(function() {
 	resize();	
 	setSeats();
@@ -217,3 +218,7 @@ function manuallyAddToCar(car, person) {
     });
     setSeats();
 }
+
+$(window).load(function() {
+  resize();
+});
