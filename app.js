@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var connect = require('connect');
-var databaseUrl = 'rideboardDb';
+var databaseUrl = 'rideboardapp:rideboardapp@ds035488.mongolab.com:35488/rideboarddb';
 var collections = ['events'];
 var db = require('mongojs').connect(databaseUrl, collections);
 var ObjectId = require('mongojs').ObjectId;
